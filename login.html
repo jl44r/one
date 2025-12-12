@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="ar">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>next level - BYE Gaming Center</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/logo.png" alt="logo" />
+            <div class="brand">BYE Gaming Center</div>
+        </div>
+
+        <nav class="navigation" aria-label="القائمة الرئيسية">
+            <a href="#home">الصفحة الرئيسية</a>
+            <a href="#service">الخدمات</a>
+            <a href="creatacount.html">إنشاء حساب</a>
+            <a href="#" id="loginToggle">تسجيل الدخول</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="sec-one" id="home">
+            <!-- Carousel / Slider (full-screen) -->
+            <div class="carousel" id="carousel" aria-roledescription="carousel">
+                <div class="slides" id="slides">
+                    <div class="slide active" data-index="0" aria-hidden="false">
+                        <img src="img/coffe.png" alt="صورة عرض 1" />
+                    </div>
+                    <div class="slide" data-index="1" aria-hidden="true">
+                        <img src="img/play.png" alt="صورة عرض 2" />
+                    </div>
+                    <div class="slide" data-index="2" aria-hidden="true">
+                        <img src="img/rest.png" alt="صورة عرض 3" />
+                    </div>
+                </div>
+
+                <!-- الأسهم -->
+                <button class="arrow prev" id="prevBtn" aria-label="الشريحة السابقة" title="السابق">&#10094;</button>
+                <button class="arrow next" id="nextBtn" aria-label="الشريحة التالية" title="التالي">&#10095;</button>
+
+                <!-- نقاط العرض -->
+                <div class="dots" id="dots" role="tablist" aria-label="نقاط الشريحة"></div>
+            </div>
+        </section>
+
+        <section class="sec-two" id="service">
+            <div class="content">
+                <h2>خــدماتنا</h2>
+                <p>نقدّم بيئة مريحة ومجهزة بأحدث التقنيات لعشّاق الألعاب والمقاهي. استمتعوا بتجربة لعب مميزة مع أصدقائكم.</p>
+                <a href="#home" class="btn" style="display:inline-block;background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;margin-top:10px;">العودة إلى الصفحة الرئيسية</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container" role="contentinfo">
+            <div class="footer-brand">
+                <div class="brand-row">
+                    <img src="img/logo.png" alt="BYE Gaming Center logo" />
+                    <div>
+                        <strong style="color:#fff">BYE Gaming Center</strong>
+                        <div style="color:rgba(255,255,255,0.65);font-size:13px">مقهى ألعاب ومركز ترفيه</div>
+                    </div>
+                </div>
+                <div class="desc">نوفر أحدث أجهزة الألعاب وبيئة مريحة للاستمتاع مع الأصدقاء. زورونا لتجربة ممتعة ومميزة.</div>
+            </div>
+
+            <div class="footer-links" aria-label="روابط سريعة">
+                <h4>روابط سريعة</h4>
+                <ul>
+                    <li><a href="#home">الصفحة الرئيسية</a></li>
+                    <li><a href="#service">الخدمات</a></li>
+                    <li><a href="creatacount.html">إنشاء حساب</a></li>
+                    <li><a href="#">الأسئلة الشائعة</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact" aria-label="تواصل معنا">
+                <h4>تواصل معنا</h4>
+                <div class="contact-item"><strong>العنوان:</strong>&nbsp;<span>شارع الألعاب، المدينة</span></div>
+                <div class="contact-item"><strong>الهاتف:</strong>&nbsp;<span>+123 456 7890</span></div>
+                <div class="contact-item"><strong>البريد:</strong>&nbsp;<a href="mailto:byecenter@gmail.com">byecenter@gmail.com</a></div>
+            </div>
+
+            <div class="footer-follow" aria-label="تابعنا">
+                <h4>تابعنا</h4>
+                <div class="socials" aria-hidden="false">
+                    <a href="#" aria-label="فيسبوك">f</a>
+                    <a href="#" aria-label="تويتر">t</a>
+                    <a href="#" aria-label="إنستغرام">ig</a>
+                </div>
+                <div style="margin-top:10px;color:rgba(255,255,255,0.65);font-size:13px">ساعات العمل: 10ص - 12م</div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>&copy; 2024 BYE Gaming Center. جميع الحقوق محفوظة.</div>
+            <div style="color:rgba(255,255,255,0.65);font-size:13px">تصميم وتطوير عبدالله كريم</div>
+        </div>
+    </footer>
+
+    <!-- hidden form (template placeholders kept as-is) -->
+    <form name="sendin" action="$(link-login-only)" method="post" style="display:none">
+        <input type="hidden" name="username" />
+        <input type="hidden" name="password" />
+        <input type="hidden" name="dst" value="$(link-orig)" />
+        <input type="hidden" name="popup" value="true" />
+    </form>
+
+    <!-- overlay and login box -->
+    <div id="overlay" class="overlay" aria-hidden="true"></div>
+
+    <div class="mainbox" id="loginBox" aria-hidden="true" role="dialog" aria-label="Login box">
+        <form name="login" action="$(link-login-only)" method="post" onsubmit="return false;">
+            <input type="hidden" name="dst" value="$(link-orig)" />
+            <input type="hidden" name="popup" value="true" />
+
+            <div class="box_user">
+                <h2 style="margin:0">مرحبًا</h2>
+                <span style="color:rgba(255,255,255,0.65);font-size:13px">سجّل الدخول أو أنشئ حساب جديد</span>
+
+                <label>
+                    <input name="username" type="text" placeholder="اسم المستخدم" autocomplete="username" />
+                </label>
+
+                <label>
+                    <input name="password" type="password" placeholder="كلمة المرور" autocomplete="current-password" />
+                </label>
+
+                <input type="submit" value="تسجيل الدخول" />
+                <a href="creatacount.html" target="_self" style="color:rgba(255,255,255,0.65);font-size:13px;">إنشاء حساب جديد</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Login toggle
+        document.addEventListener('DOMContentLoaded', function () {
+            var loginToggle = document.getElementById('loginToggle');
+            var loginBox = document.getElementById('loginBox');
+            var overlay = document.getElementById('overlay');
+
+            if (!loginToggle || !loginBox || !overlay) return;
+
+            function showLogin() {
+                loginBox.classList.add('show');
+                loginBox.setAttribute('aria-hidden', 'false');
+                overlay.classList.add('show');
+                overlay.setAttribute('aria-hidden', 'false');
+                var userInput = loginBox.querySelector('input[name="username"]');
+                if (userInput) userInput.focus();
+            }
+            function hideLogin() {
+                loginBox.classList.remove('show');
+                loginBox.setAttribute('aria-hidden', 'true');
+                overlay.classList.remove('show');
+                overlay.setAttribute('aria-hidden', 'true');
+                loginToggle.focus();
+            }
+            loginToggle.addEventListener('click', function (e) {
+                e.preventDefault();
+                if (loginBox.classList.contains('show')) hideLogin(); else showLogin();
+            });
+            overlay.addEventListener('click', hideLogin);
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' || e.keyCode === 27) {
+                    if (loginBox.classList.contains('show')) hideLogin();
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // Carousel (fade) - متوافق/مستقر
+        document.addEventListener('DOMContentLoaded', function () {
+            var slidesContainer = document.getElementById('slides');
+            if (!slidesContainer) return;
+
+            var slides = Array.prototype.slice.call(slidesContainer.querySelectorAll('.slide'));
+            var prevBtn = document.getElementById('prevBtn');
+            var nextBtn = document.getElementById('nextBtn');
+            var dotsContainer = document.getElementById('dots');
+            var current = 0;
+            var autoplay = true;
+            var autoplayInterval = 3500;
+            var autoplayTimer = null;
+            var isAnimating = false;
+            var slideCount = slides.length;
+
+            // تحقق سريع في الـ console
+            console.log('carousel slides count =', slideCount);
+
+            if (slideCount === 0) return;
+
+            function createDots() {
+                dotsContainer.innerHTML = '';
+                for (var i = 0; i < slideCount; i++) {
+                    var b = document.createElement('button');
+                    b.className = 'dot';
+                    b.setAttribute('data-index', i);
+                    b.setAttribute('aria-label', 'الشريحة ' + (i + 1));
+                    b.setAttribute('role', 'tab');
+                    if (i === 0) {
+                        b.classList.add('active');
+                        b.setAttribute('aria-selected', 'true');
+                    } else {
+                        b.setAttribute('aria-selected', 'false');
+                    }
+                    dotsContainer.appendChild(b);
+                }
+            }
+            createDots();
+            var dots = Array.prototype.slice.call(dotsContainer.querySelectorAll('.dot'));
+
+            function show(index) {
+                if (isAnimating) return;
+                if (index < 0) index = slideCount - 1;
+                if (index >= slideCount) index = 0;
+                isAnimating = true;
+
+                slides.forEach(function (s, i) {
+                    if (i === index) {
+                        s.classList.add('active');
+                        s.setAttribute('aria-hidden', 'false');
+                    } else {
+                        s.classList.remove('active');
+                        s.setAttribute('aria-hidden', 'true');
+                    }
+                });
+
+                dots.forEach(function (d, i) {
+                    if (i === index) {
+                        d.classList.add('active');
+                        d.setAttribute('aria-selected', 'true');
+                    } else {
+                        d.classList.remove('active');
+                        d.setAttribute('aria-selected', 'false');
+                    }
+                });
+
+                current = index;
+                setTimeout(function () { isAnimating = false; }, 420);
+            }
+
+            function next() { show(current + 1); }
+            function prev() { show(current - 1); }
+
+            if (nextBtn) nextBtn.addEventListener('click', function (e) { e.preventDefault(); stopAutoplay(); next(); });
+            if (prevBtn) prevBtn.addEventListener('click', function (e) { e.preventDefault(); stopAutoplay(); prev(); });
+
+            dots.forEach(function (dot) {
+                dot.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    stopAutoplay();
+                    var idx = parseInt(this.getAttribute('data-index'), 10);
+                    show(idx);
+                });
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowLeft') { stopAutoplay(); prev(); }
+                if (e.key === 'ArrowRight') { stopAutoplay(); next(); }
+            });
+
+            function startAutoplay() {
+                if (!autoplay) return;
+                stopAutoplay();
+                autoplayTimer = setInterval(function () { next(); }, autoplayInterval);
+            }
+            function stopAutoplay() {
+                if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; }
+            }
+
+            var carousel = document.getElementById('carousel');
+            if (carousel) {
+                carousel.addEventListener('mouseenter', stopAutoplay);
+                carousel.addEventListener('mouseleave', startAutoplay);
+                carousel.addEventListener('focusin', stopAutoplay);
+                carousel.addEventListener('focusout', startAutoplay);
+            }
+
+            // touch swipe
+            (function addTouch() {
+                var startX = 0, deltaX = 0, threshold = 40;
+                slidesContainer.addEventListener('touchstart', function (e) {
+                    stopAutoplay();
+                    startX = e.touches[0].clientX;
+                    deltaX = 0;
+                }, { passive: true });
+                slidesContainer.addEventListener('touchmove', function (e) {
+                    deltaX = e.touches[0].clientX - startX;
+                }, { passive: true });
+                slidesContainer.addEventListener('touchend', function () {
+                    if (deltaX > threshold) { prev(); }
+                    else if (deltaX < -threshold) { next(); }
+                    startAutoplay();
+                });
+            })();
+
+            // init
+            show(0);
+            startAutoplay();
+        });
+    </script>
+</body>
+
+</html>

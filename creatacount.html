@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="ar">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>إنشاء حساب - BYE Gaming Center</title>
+
+    <!-- استخدم ملف الأنماط الرئيسي لصفحتك -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- أنماط صغيرة خاصة بصفحة إنشاء الحساب لعدم التعديل على style.css الرئيسي -->
+    <style>
+        /* جزء التسجيل */
+        .register-page {
+            min-height: calc(100vh - var(--header-height,72px));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 28px 16px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.35) 100%);
+        }
+
+        .register-card {
+            width: 100%;
+            max-width: 520px;
+            background: rgba(3,3,37,0.95);
+            border-radius: 12px;
+            padding: 26px;
+            box-shadow: 0 14px 40px rgba(0,0,0,0.6);
+            color: #fff;
+        }
+
+        .register-card h2 {
+            margin: 0 0 8px 0;
+            font-size: 22px;
+            text-align: center;
+        }
+
+        .register-card p.lead {
+            margin: 0 0 16px 0;
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .form-row .field { flex: 1; }
+
+        .field input,
+        .field select {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.06);
+            background: rgba(255,255,255,0.02);
+            color: #fff;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .field input::placeholder { color: rgba(255,255,255,0.45); }
+
+        .checkbox-row {
+            display:flex;
+            gap:8px;
+            align-items:center;
+            margin-bottom: 14px;
+            color: rgba(255,255,255,0.8);
+            font-size: 14px;
+        }
+
+        .register-actions {
+            display:flex;
+            gap:10px;
+            align-items:center;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .btn-primary {
+            background: var(--accent,#fd1d1d);
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--muted, rgba(255,255,255,0.7));
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.05);
+            cursor: pointer;
+        }
+
+        .validation-error {
+            color: #ffb4b4;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .success-message {
+            background: rgba(46, 204, 113, 0.12);
+            color: #bff0c7;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 520px) {
+            .form-row { flex-direction: column; }
+            .register-card { padding: 18px; }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/logo.png" alt="logo" />
+            <div class="brand">BYE Gaming Center</div>
+        </div>
+
+        <nav class="navigation" aria-label="القائمة الرئيسية">
+            <a href="login.html#home">الصفحة الرئيسية</a>
+            <a href="login.html#service">الخدمات</a>
+            <a href="login.html" id="backToHome">العودة</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="register-page" aria-labelledby="registerTitle">
+            <div class="register-card" role="region" aria-label="نموذج إنشاء حساب">
+                <h2 id="registerTitle">إنشاء حساب جديد</h2>
+                <p class="lead">أنشئ حسابًا للاستفادة من خدماتنا وحجز الألعاب بسهولة.</p>
+
+                <form id="registerForm" novalidate>
+                    <div class="form-row">
+                        <div class="field">
+                            <input id="fullName" name="fullName" type="text" placeholder="الاسم الكامل" required />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="field">
+                            <input id="username" name="username" type="text" placeholder="اسم المستخدم" required />
+                        </div>
+                        <div class="field">
+                            <input id="email" name="email" type="email" placeholder="البريد الإلكتروني" required />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="field">
+                            <input id="password" name="password" type="password" placeholder="كلمة المرور" minlength="6" required />
+                        </div>
+                        <div class="field">
+                            <input id="confirmPassword" name="confirmPassword" type="password" placeholder="تأكيد كلمة المرور" minlength="6" required />
+                        </div>
+                    </div>
+
+                    <div class="checkbox-row">
+                        <input id="terms" name="terms" type="checkbox" required />
+                        <label for="terms">أوافق على الشروط والأحكام وسياسة الخصوصية</label>
+                    </div>
+
+                    <div id="formFeedback" aria-live="polite"></div>
+
+                    <div class="register-actions">
+                        <button type="submit" class="btn-primary">إنشاء الحساب</button>
+                        <a href="login.html" class="btn-ghost">لدي حساب بالفعل</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- سكربت التحقق البسيط وحفظ افتراضي -->
+    <script>
+        (function () {
+            var form = document.getElementById('registerForm');
+            var feedback = document.getElementById('formFeedback');
+
+            function showError(msg) {
+                feedback.innerHTML = '<div class="validation-error">' + msg + '</div>';
+            }
+            function showSuccess(msg) {
+                feedback.innerHTML = '<div class="success-message">' + msg + '</div>';
+            }
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                feedback.innerHTML = '';
+
+                var fullName = document.getElementById('fullName').value.trim();
+                var username = document.getElementById('username').value.trim();
+                var email = document.getElementById('email').value.trim();
+                var password = document.getElementById('password').value;
+                var confirmPassword = document.getElementById('confirmPassword').value;
+                var terms = document.getElementById('terms').checked;
+
+                if (!fullName || !username || !email || !password || !confirmPassword) {
+                    showError('يرجى ملء جميع الحقول المطلوبة.');
+                    return;
+                }
+
+                // بريد إلكتروني بسيط
+                var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRe.test(email)) {
+                    showError('الرجاء إدخال بريد إلكتروني صالح.');
+                    return;
+                }
+
+                if (password.length < 6) {
+                    showError('يجب أن تتكون كلمة المرور من 6 أحرف على الأقل.');
+                    return;
+                }
+
+                if (password !== confirmPassword) {
+                    showError('كلمتا المرور غير متطابقتين.');
+                    return;
+                }
+
+                if (!terms) {
+                    showError('يجب الموافقة على الشروط والأحكام للاستمرار.');
+                    return;
+                }
+
+                // هنا يمكنك إرسال البيانات للسيرفر (fetch/XHR).
+                // حالياً سنحاكي نجاح التسجيل ثم نعيد المستخدم إلى صفحة تسجيل الدخول.
+                showSuccess('تم إنشاء الحساب بنجاح. سيتم تحويلك إلى صفحة تسجيل الدخول...');
+
+                // تحويل بعد 1.8 ثانية إلى صفحة تسجيل الدخول
+                setTimeout(function () {
+                    window.location.href = 'login.html';
+                }, 1800);
+            });
+        })();
+    </script>
+</body>
+
+</html>
